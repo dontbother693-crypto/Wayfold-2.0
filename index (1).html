@@ -270,4 +270,11 @@ function applyBg(){const p=$('#ph');p.style.backgroundImage='url("'+(S.bg||DEF)+
 document.addEventListener('change',e=>{if(e.target.id!='pf')return;const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const k=Math.min(1,1400/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);S.bg=c.toDataURL('image/jpeg',.78);save();applyBg();close()};im.src=r.result};r.readAsDataURL(f);e.target.value=''});
 applyBg();render();
 </script><script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}</script>
+  <script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js");
+  });
+}
+</script>
 </body></html>
